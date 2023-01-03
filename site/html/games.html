@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sources</title>
+    <title>Games - Valhalla</title>
     <link rel="icon" href="/media/val-logo.png">
     <link rel="stylesheet" href="/style/main.css">
-    <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="/style/games.css">
 </head>
   
 <body>
+    <h1 class="hidden-title">Games</h1>
     <header>
         <nav>
+            <h2 class="hidden-title">navigation bar</h2>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/games">Games</a></li>
+                <li id="current-page"><a href="/games">Games</a></li>
+                <li><a href="/products">Products</a></li>
                 <li><a href="/news">News</a></li>
                 <li><a href="/mission">Our Mission</a></li>
             </ul>
@@ -20,6 +23,47 @@
     </header>
     
     <main>
+        <section id="game-list">
+            <h2>Our games</h2>
+            <ul>
+                <li>
+                    <a class="main-link" href="/games/valman">
+                        <section class="game-grid">
+                            <h3 class="hidden-title">Valman game overview</h3>
+                            <img src="/media/games/valman.png" alt="valman preview image">
+                            <section>
+                                <h4>Valman</h4>
+                                <p>Valman is a game where you are a viking, and do stuff.</p>
+                            </section>
+                        </section>
+                    </a>
+                </li>
+                <li>
+                    <a href="/games/space-bits">
+                        <section class="game-grid">
+                            <h3 class="hidden-title">Valman game overview</h3>
+                            <img src="/media/games/space-bits.png" alt="space bits preview image">
+                            <section>
+                                <h4>Space Bits</h4>
+                                <p>A game, set in space. Also has a vriable called youDiedText ;D</p>
+                            </section>
+                        </section>
+                    </a>
+                </li>
+                <li>
+                    <a href="/games/basepong">
+                        <section class="game-grid">
+                            <h3 class="hidden-title">Valman game overview</h3>
+                            <img src="/media/games/basepong.png" alt="basepong preview image">
+                            <section>
+                                <h4>BasePong</h4>
+                                <p>It's pong, but in the BaseEngine!</p>
+                            </section>
+                        </section>
+                    </a>
+                </li>
+            </ul>
+        </section>
     </main>
     
     <footer>

@@ -49,6 +49,7 @@ header nav ul li {
 }
 
 header nav ul li a {
+    transition: background .4s;
     display: block;
     padding: 1vh 2vh;
     color: inherit;
@@ -57,6 +58,11 @@ header nav ul li a {
 
 header nav ul li a:hover {
     background-color: #2C0000;
+}
+
+header nav ul li#current-page a {
+    border: .2vh;
+    border-style: none none solid none;
 }
 
 /* body defaults */
