@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 -0.5 24 24"
+   id="meteor-icon-kit__regular-github"
+   fill="none"
+   version="1.1"
+   sodipodi:docname="github.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs846" />
+  <sodipodi:namedview
+     id="namedview844"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.08875"
+     inkscape:cx="322.38806"
+     inkscape:cy="326.98048"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     inkscape:window-x="3840"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="meteor-icon-kit__regular-github" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M 12.057506,-0.49999355 C 6.1454228,-0.5061362 1.1030807,3.8720214 0.1564807,9.8333689 -0.79011623,15.79477 2.6389431,21.576631 8.2498072,23.479773 c 0.6062713,0.113309 0.82069,-0.271878 0.82069,-0.596718 0,-0.324733 0,-1.064933 0,-2.092097 C 5.7064045,21.538754 4.9966265,19.136903 4.9966265,19.136903 4.7734514,18.392531 4.2993129,17.753014 3.6583822,17.331877 c -1.086862,-0.755286 0.088727,-0.755286 0.088727,-0.755286 0.7719742,0.111383 1.4508847,0.579277 1.8409986,1.268868 0.3304107,0.612018 0.8858085,1.064292 1.5434456,1.257098 0.6576371,0.192701 1.3633407,0.109992 1.9611174,-0.229934 C 9.1390824,18.251296 9.4012953,17.667311 9.832039,17.226165 7.1555503,16.916518 4.3459862,15.859075 4.3459862,11.183982 4.3276144,9.9627272 4.7697015,8.7809755 5.5807134,7.8834699 5.2195084,6.821586 5.2617196,5.6598746 5.6990202,4.6282707 c 0,0 1.0129136,-0.3323196 3.3123288,1.2612927 1.974535,-0.553791 4.058599,-0.553791 6.033207,0 2.299415,-1.5936123 3.304944,-1.2612927 3.304944,-1.2612927 0.443376,1.0206796 0.496062,2.1740666 0.147792,3.2325374 0.811023,0.8975056 1.253141,2.079236 1.234811,3.3004899 0,4.728057 -2.816949,5.76271 -5.500874,6.042184 0.582265,0.597895 0.881724,1.424655 0.820659,2.265752 0,1.646564 0,2.975778 0,3.376051 0,0.400273 0.214408,0.710027 0.828096,0.589121 C 21.42422,21.482046 24.78604,15.734317 23.841786,9.8218132 22.897531,3.9094166 17.921732,-0.44887076 12.057506,-0.49999355 Z"
+     fill="#758ca3"
+     id="path841"
+     style="stroke-width:1.05863" />
+</svg>

@@ -1,2 +1,5 @@
 # Website-Valhalla
 Website for Valhalla Games listing all projects, games, ect...
+
+# Authors
+BauwenDR
