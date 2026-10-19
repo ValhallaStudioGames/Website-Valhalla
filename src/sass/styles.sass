@@ -1,4 +1,4 @@
-﻿// ---------- Bootstrap: enkel de bouwstenen die we echt gebruiken ----------
+﻿// ---------- Bootstrap: only the building blocks we actually use ----------
 // Geen navbar, cards, buttons of carousel: die schrijven we zelf.
 @import "bootstrap/scss/functions"
 @import "bootstrap/scss/variables"
@@ -16,7 +16,7 @@
 @import "bootstrap/scss/utilities/api"
 @import "bootstrap-icons/font/bootstrap-icons.css"
 
-// ---------- Thema: kleuren uit het logo ----------
+// ---------- Theme: colours from the logo ----------
 :root
   --bg: #000
   --surface: #0c0a0f
@@ -31,7 +31,7 @@
   --font-display: "Rajdhani", sans-serif
   --font-body: "Inter", system-ui, sans-serif
 
-  // Schuine hoeken, zoals de bliksemschicht in het logo
+  // Slanted corners, like the lightning bolt in the logo
   --cut: 12px
 
 body
@@ -60,7 +60,7 @@ a
 .container
   max-width: 1180px
 
-// Tekst met het geel-roze verloop van de bliksem
+// Text with the yellow-pink gradient of the lightning bolt
 .grad
   background: var(--grad)
   -webkit-background-clip: text
@@ -227,7 +227,7 @@ a
     color: var(--muted)
     transition: color 0.2s
 
-    // Streepje in bliksemkleuren dat onder de link groeit
+    // Small line in lightning colours that grows under the link
     &::after
       content: ""
       position: absolute
@@ -253,7 +253,7 @@ a
   padding: 5rem 0 6rem
   isolation: isolate
 
-  // Cirkelende bogen als in het logo
+  // Circling arcs as in the logo
   &::before
     content: ""
     position: absolute
@@ -322,7 +322,7 @@ a
     transition: transform 0.6s ease, filter 0.4s
     filter: brightness(0.7)
 
-  // Donkere verloop onderaan zodat de tekst leesbaar blijft
+  // Dark gradient at the bottom so the text stays readable
   &::after
     content: ""
     position: absolute
@@ -370,13 +370,13 @@ a
     margin: 0 0 1rem
     color: rgba(246, 242, 232, 0.7)
     font-size: 0.9rem
-    // Maximaal 2 regels, zodat alle kaarten even hoog blijven
+    // Maximum 2 lines, so all cards stay the same height
     display: -webkit-box
     -webkit-line-clamp: 2
     -webkit-box-orient: vertical
     overflow: hidden
 
-// "Bekijk game →": zelfde look als .link-arrow, pijl schuift op bij hover
+// "View game →": same look as .link-arrow, arrow slides over on hover
 .poster__cta
   display: inline-flex
   align-items: center
@@ -437,7 +437,7 @@ a
   overflow: hidden
   isolation: isolate
 
-  // Bogen in de hoek
+  // Arcs in the corner
   &::before
     content: ""
     position: absolute
@@ -637,7 +637,7 @@ a
   border-bottom: 2px solid var(--line)
   transition: border-color 0.25s
 
-  // :focus-within = zodra het invoerveld binnenin focus heeft
+  // :focus-within = as soon as the input field inside has focus
   &:focus-within
     border-image: var(--grad) 1
 
@@ -661,7 +661,7 @@ a
     &::placeholder
       color: var(--muted)
 
-    // Verberg het standaard kruisje van de browser; we hebben een eigen knop
+    // Hide the browser's default clear icon; we have our own button
     &::-webkit-search-cancel-button
       display: none
 

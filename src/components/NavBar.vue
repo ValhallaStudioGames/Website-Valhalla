@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-// Vite geeft bij een import van een afbeelding de uiteindelijke URL terug (ook na de build).
+// When you import an image, Vite returns its final URL (also after the build).
 import logo from '../assets/logo.png'
 
 const links = [
@@ -11,15 +11,15 @@ const links = [
   { to: '/mission', label: 'Our Mission' },
 ]
 
-// Eén stukje state bepaalt of het mobiele menu open is.
+// A single piece of state decides whether the mobile menu is open.
 const open = ref(false)
 const route = useRoute()
 
-// "Games" moet ook actief blijven op /games/valman. Home ('/') is een uitzondering,
-// anders zou die bij elke pagina actief zijn.
+// "Games" must stay active on /games/valman too. Home ('/') is an exception,
+// otherwise it would be active on every page.
 const isCurrent = (to) => (to === '/' ? route.path === '/' : route.path.startsWith(to))
 
-// Sluit het menu automatisch na het navigeren.
+// Close the menu automatically after navigating.
 watch(() => route.path, () => { open.value = false })
 </script>
 

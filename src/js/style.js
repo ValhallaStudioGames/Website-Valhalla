@@ -1,3 +1,3 @@
-// Enkel de styling: de Bootstrap-JavaScript is niet meer nodig,
-// menu en slider worden nu met Vue gestuurd.
+// Styling only: the Bootstrap JavaScript is no longer needed,
+// the menu and slider are now driven by Vue.
 import '../sass/styles.sass'

@@ -1,5 +1,5 @@
 <script setup>
-// Props: de ouder (de view) geeft titel en ondertitel door.
+// Props: the parent (the view) passes down the title and subtitle.
 defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, default: '' },

@@ -11,10 +11,10 @@ const year = new Date().getFullYear()
       <div class="row gy-4 align-items-start">
         <div class="col-md-5">
           <img :src="logo" alt="Valhalla Games logo" width="72" height="72" class="mb-3">
-          <p class="muted mb-0">Valhalla Games, een indie game studio.</p>
+          <p class="muted mb-0">Valhalla Games, an indie game studio.</p>
         </div>
         <div class="col-6 col-md-3 offset-md-1">
-          <h4>Pagina's</h4>
+          <h4>Pages</h4>
           <ul>
             <li><RouterLink to="/">Home</RouterLink></li>
             <li><RouterLink to="/games">Games</RouterLink></li>

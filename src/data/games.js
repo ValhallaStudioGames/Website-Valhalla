@@ -1,5 +1,5 @@
-// De games van de originele site (bauwendr.com/games). Teksten en afbeeldingen komen daar vandaan.
-// `id` wordt gebruikt in de URL: /games/valman
+// The games from the original site (bauwendr.com/games). Texts and images come from there.
+// `id` is used in the URL: /games/valman
 const SITE = 'https://www.bauwendr.com'
 
 export const games = [

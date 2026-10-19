@@ -3,16 +3,16 @@ import { ref, computed } from 'vue'
 import PageHeader from '../components/PageHeader.vue'
 import { games } from '../data/games.js'
 
-// computed = wordt automatisch opnieuw berekend als `games` verandert.
+// computed = automatically recalculated when `games` changes.
 const sortedGames = computed(() => {
-  // TODO(human): geef hier een gesorteerde kopie van games terug.
+  // TODO(human): return a sorted copy of games here.
   return games
 })
 
-// Wat de bezoeker typt; v-model houdt dit in sync met het invoerveld.
+// What the visitor types; v-model keeps this in sync with the input field.
 const query = ref('')
 
-// Zoekt (hoofdletterongevoelig) in titel en omschrijving van de gesorteerde lijst.
+// Searches (case-insensitive) the title and description of the sorted list.
 const filteredGames = computed(() => {
   const q = query.value.trim().toLowerCase()
   if (!q) return sortedGames.value
@@ -23,18 +23,18 @@ const filteredGames = computed(() => {
 </script>
 
 <template>
-  <PageHeader title="Games" subtitle="Al onze games op een rij." />
+  <PageHeader title="Games" subtitle="All our games at a glance." />
   <div class="container">
     <div class="search">
       <i class="bi bi-search"></i>
-      <input v-model="query" type="search" placeholder="Zoek een game..." aria-label="Zoek een game"
+      <input v-model="query" type="search" placeholder="Search for a game..." aria-label="Search for a game"
         autocomplete="off">
-      <button v-if="query" type="button" class="search__clear" aria-label="Wis zoekopdracht" @click="query = ''">
+      <button v-if="query" type="button" class="search__clear" aria-label="Clear search" @click="query = ''">
         <i class="bi bi-x-lg"></i>
       </button>
     </div>
     <p class="muted small mb-0">
-      {{ filteredGames.length }} van {{ games.length }} {{ games.length === 1 ? 'game' : 'games' }}
+      {{ filteredGames.length }} of {{ games.length }} {{ games.length === 1 ? 'game' : 'games' }}
     </p>
 
     <article v-for="(game, i) in filteredGames" :key="game.id" class="game-row" :class="{ flip: i % 2 === 1 }">
@@ -51,11 +51,11 @@ const filteredGames = computed(() => {
       </div>
     </article>
 
-    <!-- Geen resultaten -->
+    <!-- No results -->
     <div v-if="!filteredGames.length" class="empty">
-      <h2>Geen games gevonden</h2>
-      <p class="muted">Niets gevonden voor "{{ query }}".</p>
-      <button type="button" class="btn-line" @click="query = ''">Wis zoekopdracht</button>
+      <h2>No games found</h2>
+      <p class="muted">Nothing found for "{{ query }}".</p>
+      <button type="button" class="btn-line" @click="query = ''">Clear search</button>
     </div>
   </div>
 </template>

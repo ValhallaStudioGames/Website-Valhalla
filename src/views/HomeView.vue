@@ -11,9 +11,9 @@ import logo from '../assets/logo.png'
       <div>
         <span class="eyebrow">Indie game studio</span>
         <h1><span class="grad">Valhalla Games</span></h1>
-        <p class="mb-4">Games vol sagen, strijd en avontuur. Ontdek onze titels en word deel van de legende.</p>
+        <p class="mb-4">Games full of sagas, battle and adventure. Discover our titles and become part of the legend.</p>
         <div class="d-flex flex-wrap gap-3">
-          <RouterLink to="/games" class="btn-solid">Bekijk games <i class="bi bi-arrow-right"></i></RouterLink>
+          <RouterLink to="/games" class="btn-solid">View games<i class="bi bi-arrow-right"></i></RouterLink>
           <RouterLink to="/mission" class="btn-line">Our Mission</RouterLink>
         </div>
       </div>
@@ -25,10 +25,10 @@ import logo from '../assets/logo.png'
     <div class="container">
       <span class="eyebrow">What we do</span>
       <p class="statement">
-        Valhalla Games maakt games waar <em>energie</em>, <em>strijd</em> en <em>avontuur</em> samenkomen.
+        Valhalla Games makes games where <em>energy</em>, <em>battle</em> and <em>adventure</em> come together.
       </p>
       <p class="muted mt-4" style="max-width: 40rem">
-        Hier komt een korte beschrijving van de studio: wie we zijn en wat voor games we maken.
+        A short description of the studio will go here: who we are and what kind of games we make.
       </p>
     </div>
   </section>
@@ -36,8 +36,8 @@ import logo from '../assets/logo.png'
   <section class="section pt-0">
     <div class="container">
       <div class="section-head">
-        <h2>Uitgelicht</h2>
-        <RouterLink to="/games" class="link-arrow">Alle games <i class="bi bi-arrow-right"></i></RouterLink>
+        <h2>Featured</h2>
+        <RouterLink to="/games" class="link-arrow">All games<i class="bi bi-arrow-right"></i></RouterLink>
       </div>
       <div class="row g-3">
         <div v-for="game in games" :key="game.id" class="col-12 col-md-4">

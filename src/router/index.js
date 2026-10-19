@@ -9,7 +9,7 @@ import SourcesView from '../views/SourcesView.vue'
 const routes = [
   { path: '/', name: 'home', component: HomeView },
   { path: '/games', name: 'games', component: GamesView },
-  // ":id" is een parameter; props: true geeft hem als prop aan de view.
+  // ":id" is a parameter; props: true passes it to the view as a prop.
   { path: '/games/:id', name: 'game', component: GameDetailView, props: true },
   { path: '/news', name: 'news', component: NewsView },
   { path: '/mission', name: 'mission', component: MissionView },
@@ -19,7 +19,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  // Na een navigatie terug naar boven scrollen, zoals bij een gewone pagina.
+  // Scroll back to the top after navigating, like on a regular page.
   scrollBehavior: () => ({ top: 0 }),
 })
 
