@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -20,12 +22,15 @@
   },
   "homepage": "https://github.com/ValhallaStudioGames/Website-Valhalla#readme",
   "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
     "sass": "^1.86.0",
     "vite": "^6.2.4"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "vue": "^3.5.44",
+    "vue-router": "^4.6.4"
   }
 }

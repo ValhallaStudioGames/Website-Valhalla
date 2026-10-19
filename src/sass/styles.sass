@@ -1,2 +1,684 @@
-@import "bootstrap/dist/css/bootstrap.min.css"
+﻿// ---------- Bootstrap: enkel de bouwstenen die we echt gebruiken ----------
+// Geen navbar, cards, buttons of carousel: die schrijven we zelf.
+@import "bootstrap/scss/functions"
+@import "bootstrap/scss/variables"
+@import "bootstrap/scss/variables-dark"
+@import "bootstrap/scss/maps"
+@import "bootstrap/scss/mixins"
+@import "bootstrap/scss/utilities"
+@import "bootstrap/scss/root"
+@import "bootstrap/scss/reboot"
+@import "bootstrap/scss/type"
+@import "bootstrap/scss/images"
+@import "bootstrap/scss/containers"
+@import "bootstrap/scss/grid"
+@import "bootstrap/scss/helpers"
+@import "bootstrap/scss/utilities/api"
 @import "bootstrap-icons/font/bootstrap-icons.css"
+
+// ---------- Thema: kleuren uit het logo ----------
+:root
+  --bg: #000
+  --surface: #0c0a0f
+  --ink: #f6f2e8
+  --muted: #a09a90
+  --line: rgba(255, 245, 144, 0.14)
+  --yellow: #fff590
+  --pink: #e97cff
+  --orange: #ff6e00
+  --brown: #733300
+  --grad: linear-gradient(135deg, var(--yellow), var(--pink))
+  --font-display: "Rajdhani", sans-serif
+  --font-body: "Inter", system-ui, sans-serif
+
+  // Schuine hoeken, zoals de bliksemschicht in het logo
+  --cut: 12px
+
+body
+  background: var(--bg)
+  color: var(--ink)
+  font-family: var(--font-body)
+  line-height: 1.7
+
+h1, h2, h3, h4
+  font-family: var(--font-display)
+  font-weight: 700
+  line-height: 1.05
+  letter-spacing: 0.02em
+
+a
+  color: inherit
+  text-decoration: none
+
+::selection
+  background: var(--pink)
+  color: #000
+
+.muted
+  color: var(--muted)
+
+.container
+  max-width: 1180px
+
+// Tekst met het geel-roze verloop van de bliksem
+.grad
+  background: var(--grad)
+  -webkit-background-clip: text
+  background-clip: text
+  color: transparent
+
+// Kleine hoofdletterlabels
+.eyebrow
+  display: block
+  color: var(--orange)
+  text-transform: uppercase
+  letter-spacing: 0.25em
+  font-size: 0.75rem
+  font-weight: 600
+  margin-bottom: 1rem
+
+.section
+  padding: 5rem 0
+
+.section-head
+  display: flex
+  align-items: baseline
+  justify-content: space-between
+  gap: 1rem
+  border-bottom: 1px solid var(--line)
+  padding-bottom: 1rem
+  margin-bottom: 2.5rem
+
+  h2
+    font-size: clamp(2rem, 4vw, 3rem)
+    margin: 0
+    text-transform: uppercase
+
+  .idx
+    color: var(--orange)
+    font-family: var(--font-display)
+    font-size: 1.4rem
+
+// ---------- Knoppen (schuine hoeken via clip-path) ----------
+.btn-solid, .btn-line
+  display: inline-flex
+  align-items: center
+  gap: 0.6rem
+  padding: 0.95rem 1.8rem
+  font-family: var(--font-display)
+  font-size: 1rem
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 0.15em
+  border: 0
+  cursor: pointer
+  clip-path: polygon(var(--cut) 0, 100% 0, calc(100% - var(--cut)) 100%, 0 100%)
+  transition: gap 0.25s, filter 0.25s, background 0.25s, color 0.25s
+
+  &:hover
+    gap: 1rem
+
+.btn-solid
+  background: var(--grad)
+  color: #000
+
+  &:hover
+    filter: brightness(1.12) saturate(1.2)
+
+.btn-line
+  background: transparent
+  color: var(--ink)
+  box-shadow: inset 0 0 0 1px var(--pink)
+
+  &:hover
+    background: var(--pink)
+    color: #000
+
+.link-arrow
+  display: inline-flex
+  align-items: center
+  gap: 0.5rem
+  color: var(--yellow)
+  font-family: var(--font-display)
+  font-size: 1rem
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 0.15em
+  transition: gap 0.25s, color 0.25s
+
+  &:hover
+    gap: 0.9rem
+    color: var(--pink)
+
+// ---------- Navigatie ----------
+.site-nav
+  position: sticky
+  top: 0
+  z-index: 100
+  background: rgba(0, 0, 0, 0.85)
+  backdrop-filter: blur(10px)
+  border-bottom: 1px solid var(--line)
+
+.site-nav__inner
+  display: flex
+  align-items: center
+  justify-content: space-between
+  min-height: 4.5rem
+
+.brand
+  font-family: var(--font-display)
+  font-weight: 700
+  font-size: 1.6rem
+  letter-spacing: 0.15em
+  text-transform: uppercase
+  display: flex
+  align-items: center
+  gap: 0.75rem
+
+  img
+    width: 2.5rem
+    height: 2.5rem
+
+.nav-toggle
+  background: none
+  border: 1px solid var(--line)
+  color: var(--ink)
+  font-size: 1.4rem
+  width: 2.8rem
+  height: 2.8rem
+  display: grid
+  place-items: center
+  cursor: pointer
+
+  @media (min-width: 768px)
+    display: none
+
+.site-nav__links
+  display: none
+  position: absolute
+  top: 100%
+  left: 0
+  right: 0
+  flex-direction: column
+  background: var(--bg)
+  border-bottom: 1px solid var(--line)
+  padding: 1rem 0.75rem
+
+  &.open
+    display: flex
+
+  @media (min-width: 768px)
+    display: flex
+    position: static
+    flex-direction: row
+    gap: 2.5rem
+    padding: 0
+    border: 0
+    background: none
+
+  a
+    position: relative
+    padding: 0.8rem 0.5rem
+    font-family: var(--font-display)
+    text-transform: uppercase
+    letter-spacing: 0.18em
+    font-size: 1rem
+    font-weight: 700
+    color: var(--muted)
+    transition: color 0.2s
+
+    // Streepje in bliksemkleuren dat onder de link groeit
+    &::after
+      content: ""
+      position: absolute
+      left: 0.5rem
+      right: 0.5rem
+      bottom: 0.3rem
+      height: 3px
+      background: var(--grad)
+      transform: scaleX(0)
+      transform-origin: left
+      transition: transform 0.3s
+
+    &:hover, &.current
+      color: var(--ink)
+
+    &:hover::after, &.current::after
+      transform: scaleX(1)
+
+// ---------- Hero ----------
+.hero
+  position: relative
+  overflow: hidden
+  padding: 5rem 0 6rem
+  isolation: isolate
+
+  // Cirkelende bogen als in het logo
+  &::before
+    content: ""
+    position: absolute
+    z-index: -1
+    width: 110vmin
+    aspect-ratio: 1
+    right: -25vmin
+    top: 50%
+    transform: translateY(-50%)
+    border-radius: 50%
+    background: repeating-radial-gradient(circle, transparent 0 34px, rgba(255, 110, 0, 0.28) 34px 38px)
+    -webkit-mask-image: radial-gradient(circle, #000 25%, transparent 68%)
+    mask-image: radial-gradient(circle, #000 25%, transparent 68%)
+
+.hero__inner
+  display: grid
+  gap: 3rem
+  align-items: center
+
+  @media (min-width: 900px)
+    grid-template-columns: 1.2fr 1fr
+
+  h1
+    font-size: clamp(4rem, 14vw, 9rem)
+    text-transform: uppercase
+    letter-spacing: 0.05em
+    margin: 0 0 1.5rem
+
+  p
+    max-width: 32rem
+    color: rgba(246, 242, 232, 0.8)
+    font-size: 1.1rem
+
+.hero__logo
+  width: 100%
+  max-width: 440px
+  justify-self: center
+  filter: drop-shadow(0 0 40px rgba(233, 124, 255, 0.35))
+
+// ---------- Intro + cijfers ----------
+.statement
+  font-family: var(--font-display)
+  font-size: clamp(1.8rem, 3.8vw, 3rem)
+  line-height: 1.2
+  max-width: 52rem
+
+  em
+    font-style: normal
+    color: var(--orange)
+
+// ---------- Poster-tegel (game) ----------
+.poster
+  position: relative
+  display: block
+  overflow: hidden
+  aspect-ratio: 4 / 5
+  background: var(--surface)
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%)
+  box-shadow: inset 0 0 0 1px var(--line)
+  transition: box-shadow 0.3s, transform 0.3s
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    transition: transform 0.6s ease, filter 0.4s
+    filter: brightness(0.7)
+
+  // Donkere verloop onderaan zodat de tekst leesbaar blijft
+  &::after
+    content: ""
+    position: absolute
+    inset: 0
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, transparent 60%)
+
+  // Streep in bliksemkleuren bovenaan, groeit uit bij hover
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 2
+    height: 4px
+    width: 3rem
+    background: var(--grad)
+    transition: width 0.4s ease
+
+  &:hover
+    transform: translateY(-6px)
+    box-shadow: inset 0 0 0 1px var(--pink)
+
+  &:hover::before
+    width: 100%
+
+  &:hover img
+    transform: scale(1.06)
+    filter: brightness(1)
+
+.poster__body
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 1
+  padding: 1.5rem
+
+  h3
+    font-size: 1.9rem
+    text-transform: uppercase
+    margin: 0.25rem 0 0.5rem
+    transition: color 0.3s
+
+  p
+    margin: 0 0 1rem
+    color: rgba(246, 242, 232, 0.7)
+    font-size: 0.9rem
+    // Maximaal 2 regels, zodat alle kaarten even hoog blijven
+    display: -webkit-box
+    -webkit-line-clamp: 2
+    -webkit-box-orient: vertical
+    overflow: hidden
+
+// "Bekijk game →": zelfde look als .link-arrow, pijl schuift op bij hover
+.poster__cta
+  display: inline-flex
+  align-items: center
+  gap: 0.5rem
+  color: var(--yellow)
+  font-family: var(--font-display)
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 0.15em
+  transition: gap 0.25s, color 0.25s
+
+.poster:hover
+  .poster__cta
+    gap: 0.9rem
+    color: var(--pink)
+
+  h3
+    color: var(--yellow)
+
+// ---------- Game-rijen (Games-pagina) ----------
+.game-row
+  display: grid
+  gap: 2rem
+  padding: 3rem 0
+  border-bottom: 1px solid var(--line)
+
+  @media (min-width: 900px)
+    grid-template-columns: 1.1fr 1fr
+    align-items: center
+    gap: 4rem
+
+    &.flip .game-row__img
+      order: 2
+
+  img
+    width: 100%
+    aspect-ratio: 16 / 10
+    object-fit: cover
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)
+
+  h2
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem)
+    text-transform: uppercase
+    margin: 0 0 1rem
+
+  .idx
+    font-family: var(--font-display)
+    font-size: 1.2rem
+    margin-bottom: 0.5rem
+    display: block
+    color: var(--pink)
+
+// ---------- Pagina-kop ----------
+.page-header
+  position: relative
+  padding: 6rem 0 3rem
+  border-bottom: 1px solid var(--line)
+  overflow: hidden
+  isolation: isolate
+
+  // Bogen in de hoek
+  &::before
+    content: ""
+    position: absolute
+    z-index: -1
+    width: 60vmin
+    aspect-ratio: 1
+    right: -10vmin
+    top: -20vmin
+    border-radius: 50%
+    background: repeating-radial-gradient(circle, transparent 0 22px, rgba(255, 110, 0, 0.25) 22px 25px)
+    -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%)
+    mask-image: radial-gradient(circle, #000 30%, transparent 70%)
+
+  h1
+    font-size: clamp(3.5rem, 10vw, 7rem)
+    text-transform: uppercase
+    margin: 0 0 1rem
+    background: var(--grad)
+    -webkit-background-clip: text
+    background-clip: text
+    color: transparent
+
+  p
+    color: var(--muted)
+    font-size: 1.15rem
+    max-width: 36rem
+    margin: 0
+
+// ---------- About ----------
+.num-col
+  border-top: 3px solid var(--orange)
+  padding-top: 1.25rem
+  height: 100%
+
+  .idx
+    font-family: var(--font-display)
+    font-size: 1.2rem
+    color: var(--pink)
+
+  h3
+    font-size: 1.8rem
+    text-transform: uppercase
+    margin: 0.5rem 0
+
+  p
+    color: var(--muted)
+    margin: 0
+
+// ---------- Call-to-action ----------
+.cta
+  border-top: 1px solid var(--line)
+  border-bottom: 1px solid var(--line)
+  padding: 5rem 0
+  text-align: center
+
+  h2
+    font-size: clamp(2.2rem, 6vw, 4.5rem)
+    text-transform: uppercase
+    margin-bottom: 2rem
+
+// ---------- Footer ----------
+.site-footer
+  margin-top: 5rem
+  padding: 4rem 0 2rem
+  border-top: 1px solid var(--line)
+
+  h4
+    font-family: var(--font-body)
+    font-size: 0.75rem
+    text-transform: uppercase
+    letter-spacing: 0.2em
+    color: var(--orange)
+    margin-bottom: 1rem
+
+  a
+    color: var(--muted)
+    transition: color 0.2s
+
+    &:hover
+      color: var(--yellow)
+
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+
+
+// ---------- Nieuws ----------
+.news-row
+  display: grid
+  gap: 0.5rem 3rem
+  padding: 2rem 0
+  border-bottom: 1px solid var(--line)
+
+  @media (min-width: 768px)
+    grid-template-columns: 12rem 1fr
+
+  time
+    font-family: var(--font-display)
+    font-size: 1.1rem
+    letter-spacing: 0.08em
+    color: var(--orange)
+
+  h2
+    font-size: clamp(1.6rem, 3vw, 2.25rem)
+    text-transform: uppercase
+    margin: 0 0 0.5rem
+
+// ---------- Sociale links ----------
+.social-link
+  display: flex
+  align-items: center
+  gap: 1.25rem
+  padding: 1.5rem 0
+  border-bottom: 1px solid var(--line)
+  font-family: var(--font-display)
+  font-size: clamp(1.6rem, 3vw, 2.25rem)
+  font-weight: 700
+  text-transform: uppercase
+  transition: color 0.2s
+
+  i:first-child
+    color: var(--pink)
+
+  .arrow
+    margin-left: auto
+    color: var(--orange)
+    transition: transform 0.25s
+
+  &:hover
+    color: var(--yellow)
+
+    .arrow
+      transform: translate(6px, -6px)
+
+// ---------- Bronnen ----------
+.source-list
+  list-style: none
+  padding: 0
+  margin: 0
+
+  li
+    display: flex
+    justify-content: space-between
+    align-items: baseline
+    gap: 1rem
+    padding: 1.25rem 0
+    border-bottom: 1px solid var(--line)
+
+  a
+    font-family: var(--font-display)
+    font-weight: 700
+    font-size: 1.5rem
+    text-transform: uppercase
+    transition: color 0.2s
+
+    &:hover
+      color: var(--yellow)
+
+// ---------- Game overview ----------
+.detail-image
+  width: 100%
+  display: block
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0 100%)
+
+.detail-heading
+  font-size: 1.6rem
+  text-transform: uppercase
+  margin-bottom: 1rem
+
+.info-list
+  margin: 0 0 1.5rem
+
+  div
+    display: flex
+    justify-content: space-between
+    gap: 1rem
+    padding: 0.9rem 0
+    border-bottom: 1px solid var(--line)
+
+  dt
+    color: var(--orange)
+    font-weight: 600
+    font-size: 0.75rem
+    text-transform: uppercase
+    letter-spacing: 0.15em
+
+  dd
+    margin: 0
+
+// ---------- Zoekbalk ----------
+.search
+  position: relative
+  display: flex
+  align-items: center
+  margin: 2.5rem 0 1rem
+  border-bottom: 2px solid var(--line)
+  transition: border-color 0.25s
+
+  // :focus-within = zodra het invoerveld binnenin focus heeft
+  &:focus-within
+    border-image: var(--grad) 1
+
+  > i
+    color: var(--pink)
+    font-size: 1.25rem
+
+  input
+    flex: 1
+    min-width: 0
+    background: none
+    border: 0
+    outline: 0
+    padding: 1rem
+    color: var(--ink)
+    font-family: var(--font-display)
+    font-size: clamp(1.4rem, 3vw, 2rem)
+    font-weight: 600
+    letter-spacing: 0.04em
+
+    &::placeholder
+      color: var(--muted)
+
+    // Verberg het standaard kruisje van de browser; we hebben een eigen knop
+    &::-webkit-search-cancel-button
+      display: none
+
+.search__clear
+  background: none
+  border: 0
+  color: var(--muted)
+  cursor: pointer
+  padding: 0.5rem
+  transition: color 0.2s
+
+  &:hover
+    color: var(--orange)
+
+.empty
+  padding: 5rem 0
+  text-align: center
+
+  h2
+    text-transform: uppercase
