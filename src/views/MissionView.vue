@@ -15,7 +15,7 @@ const principles = [
   <section class="section">
     <div class="container">
       <p class="statement">
-        Our mission: to make <em>polished</em> games that are fully <em>open-source</em>. We want to inspire starting gamedevs by letting them explore and tinker.
+        Our mission is to create <em>polished</em>, fully <em>open-source</em> games that inspire the next generation of game developers to explore, tinker, and build.
       </p>
       <p class="muted mt-4" style="max-width: 40rem">
         Fill in the real mission text here.
